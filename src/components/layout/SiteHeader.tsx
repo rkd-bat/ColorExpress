@@ -6,8 +6,8 @@ import { Wordmark } from "@/components/shared/Wordmark";
 import { salon } from "@/data/salon";
 
 const navigation = [
-  { href: "#servicios", label: "Servicios" },
   { href: "#galeria", label: "Nuestro trabajo" },
+  { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Visítanos" },
 ];
 

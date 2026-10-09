@@ -22,7 +22,7 @@ export function HeroSection() {
             tú. Un espacio dedicado a resaltar tu belleza.
           </p>
           <BookingLink />
-          <a href="#servicios" className="explore-link">
+          <a href="#galeria" className="explore-link">
             Encuentra tu próximo look{" "}
             <ArrowDown size={15} aria-hidden="true" />
           </a>

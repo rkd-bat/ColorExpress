@@ -15,8 +15,8 @@ export const App = () => (
     <SiteHeader />
     <main id="contenido">
       <HeroSection />
-      <ServicesSection />
       <GallerySection />
+      <ServicesSection />
       <SalonStatement />
       <ContactSection />
     </main>
