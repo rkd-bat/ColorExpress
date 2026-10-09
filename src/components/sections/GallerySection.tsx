@@ -10,7 +10,7 @@ export function GallerySection() {
       <div className="container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 — NUESTRO TRABAJO</p>
+            <p className="eyebrow">01 — NUESTRO TRABAJO</p>
             <h2>
               El detalle hace
               <br />

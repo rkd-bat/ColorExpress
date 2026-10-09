@@ -47,6 +47,10 @@ node node_modules/vite/bin/vite.js build
 | `public/images/` | Fotografías de trabajos. |
 | `index.html` | Título, descripción, favicon y metadatos para redes sociales. |
 
+## Servicios
+
+Los servicios se mantienen en `src/data/salon.ts`. Cada servicio tiene una `category`: `color`, `styling`, `care` o `cuts`. Se agrupan en el acordeón de `ServicesAccordion.tsx`, con Color abierto inicialmente y una sola categoría abierta a la vez. Desde 768 px, los servicios de la categoría abierta se distribuyen en dos columnas con su descripción; en móvil usan una sola columna de filas compactas.
+
 ## Agregar o cambiar fotografías
 
 1. Coloca la fotografía en `public/images/`, usando un nombre en minúsculas y sin espacios.
@@ -56,7 +60,7 @@ node node_modules/vite/bin/vite.js build
 { label: "Maquillaje", src: "/images/maquillaje.jpeg", alt: "Descripción concreta de lo que muestra la fotografía." }
 ```
 
-La ruta pública comienza con `/images/`, sin `public`. Usa la extensión y las mayúsculas exactas del archivo: el despliegue distingue mayúsculas. Una entrada con `src: ""` muestra “Próximamente”; actualmente queda pendiente Maquillaje. Las fotos se muestran en formato vertical 3:4 con recorte centrado. Procura comprimirlas antes de subirlas.
+La ruta pública comienza con `/images/`, sin `public`. Usa la extensión y las mayúsculas exactas del archivo: el despliegue distingue mayúsculas. Una entrada con `src: ""` muestra “Próximamente”. Las fotos se muestran en formato vertical 3:4 con recorte centrado. Procura comprimirlas antes de subirlas.
 
 ## Logos y redes sociales
 
