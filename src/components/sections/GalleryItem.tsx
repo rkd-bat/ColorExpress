@@ -8,16 +8,15 @@ type GalleryItemProps = {
 
 export function GalleryItem({ item, index }: GalleryItemProps) {
   return (
-    <figure
-      className={`gallery-item gallery-item-${index + 1}`}
-    >
+    <figure className={`gallery-item gallery-item-${index + 1}`}>
       {item.src ? (
         <img
           src={item.src}
           alt={item.alt}
           loading="lazy"
-          width={700}
-          height={900}
+          width={3024}
+          height={4032}
+          decoding="async"
         />
       ) : (
         <div className="gallery-placeholder">
@@ -27,7 +26,7 @@ export function GalleryItem({ item, index }: GalleryItemProps) {
       )}
       <figcaption>
         <span>{item.label}</span>
-        <span>0{index + 1}</span>
+        <span>{String(index + 1).padStart(2, "0")}</span>
       </figcaption>
     </figure>
   );

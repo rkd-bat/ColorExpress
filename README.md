@@ -1,78 +1,73 @@
-# React + TypeScript + Vite
+# Color Express Salón
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing de Color Express Salón By Melinaky Contreras. Presenta servicios, una galería de trabajos y enlaces para cotizar o agendar por WhatsApp.
 
-Currently, two official plugins are available:
+Construida con React, TypeScript, Vite, React Compiler, Tailwind CSS y componentes de shadcn/Base UI. La navegación usa anclas dentro de una sola página.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Desarrollo
 
-## React Compiler
+Usa Node 22.12 o superior.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Comprobaciones
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm run lint
+npm run build
+npm run preview
 ```
+
+El build comprueba TypeScript y genera `dist/`. Preview permite revisar ese resultado antes de publicarlo.
+
+Si el comando `npm` de tu equipo no funciona, con las dependencias ya instaladas puedes ejecutar:
+
+```sh
+node node_modules/eslint/bin/eslint.js .
+node node_modules/typescript/bin/tsc -b
+node node_modules/vite/bin/vite.js build
+```
+
+## Organización
+
+| Ubicación | Contenido |
+| --- | --- |
+| `src/App.tsx` | Orden de las secciones de la página. |
+| `src/components/layout/` | Encabezado, menú y pie de página. |
+| `src/components/sections/` | Portada, servicios, galería y contacto. |
+| `src/components/shared/` | Logo y enlaces reutilizables de WhatsApp. |
+| `src/components/ui/` | Botón de interfaz y sus variantes visuales. |
+| `src/data/salon.ts` | Datos del salón, servicios, fotos y enlaces de WhatsApp. |
+| `src/index.css` | Importaciones, tema de Tailwind/shadcn y colores de marca. |
+| `src/styles/landing.css` | Estilos de la landing y ajustes para móvil. |
+| `public/branding/` | Logos e imagen para compartir la web. |
+| `public/images/` | Fotografías de trabajos. |
+| `index.html` | Título, descripción, favicon y metadatos para redes sociales. |
+
+## Agregar o cambiar fotografías
+
+1. Coloca la fotografía en `public/images/`, usando un nombre en minúsculas y sin espacios.
+2. Actualiza la entrada correspondiente de `gallery` en `src/data/salon.ts`:
+
+```ts
+{ label: "Maquillaje", src: "/images/maquillaje.jpeg", alt: "Descripción concreta de lo que muestra la fotografía." }
+```
+
+La ruta pública comienza con `/images/`, sin `public`. Usa la extensión y las mayúsculas exactas del archivo: el despliegue distingue mayúsculas. Una entrada con `src: ""` muestra “Próximamente”; actualmente queda pendiente Maquillaje. Las fotos se muestran en formato vertical 3:4 con recorte centrado. Procura comprimirlas antes de subirlas.
+
+## Logos y redes sociales
+
+- `logo.png`: símbolo del encabezado y favicon.
+- `logo-text.png`: logo completo de la portada y el pie.
+- `compartir-web.png`: vista previa al compartir el enlace.
+
+Si renombras estos archivos, actualiza también sus referencias en los componentes y en `index.html`. Al cambiar de dominio, actualiza la URL canónica, `og:url` y las URLs absolutas de las imágenes para compartir.
+
+## Publicación en Vercel
+
+El repositorio se despliega como un proyecto Vite: comando `npm run build` y directorio de salida `dist`. Los cambios locales llegan al sitio al hacer push a la rama conectada en Vercel.
+
+Antes de publicar, revisa el menú móvil, las anclas, las imágenes y que cada botón de cotización incluya el servicio correcto. La entrega final en WhatsApp y Facebook debe comprobarse desde un teléfono con esas aplicaciones.

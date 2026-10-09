@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Image generation prompts
+public/branding/*-prompt.txt
+public/branding/logo-prompt.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

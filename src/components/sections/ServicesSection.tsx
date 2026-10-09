@@ -18,6 +18,10 @@ export function ServicesSection() {
             qué tienes en mente y encontramos el servicio para ti.
           </p>
         </div>
+        <p className="pricing-note">
+          El precio varía según el servicio y el largo de tu cabello. Escríbenos
+          para recibir una cotización personalizada.
+        </p>
         <div className="services-grid">
           {services.map((service, index) => (
             <ServiceCard service={service} index={index} key={service.name} />
