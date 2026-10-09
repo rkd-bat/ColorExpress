@@ -1,2 +1,0 @@
-Coloca aquí las fotografías del salón. En src/data/salon.ts, completa src y alt de cada entrada de gallery.
-Ejemplo: { label: "Balayage", src: "/images/balayage.jpg", alt: "Balayage en tonos miel sobre cabello largo" }

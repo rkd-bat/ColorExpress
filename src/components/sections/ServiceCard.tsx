@@ -10,7 +10,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   return (
     <article className="service-card">
       <div className="service-top">
-        <span>0{index + 1}</span>
+        <span>{String(index + 1).padStart(2, "0")}</span>
         <service.icon
           size={25}
           strokeWidth={1.3}
@@ -25,10 +25,10 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         rel="noopener noreferrer"
         className="service-link"
       >
-        Consultar servicio{" "}
+        Cotizar por WhatsApp{" "}
         <ArrowUpRight size={18} aria-hidden="true" />
         <span className="sr-only">
-          : {service.name} por WhatsApp
+          : {service.name}
         </span>
       </a>
     </article>
